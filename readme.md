@@ -1,4 +1,6 @@
-# CRUD
+#CRUD
+
+⚠ Projeto ainda em desenvolvimento. Algumas partes não funcionam
 
 # Projeto CRUD de Usuários
 
@@ -18,6 +20,7 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) de usuários, 
 
 - Remover um usuário da lista.
 
+[🔗 Clique aqui para acessar](https://tiagow-san.github.io/CRUD)
 ## 🛠 Tecnologias
 
 - JavaScript
