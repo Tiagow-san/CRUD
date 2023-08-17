@@ -1,5 +1,3 @@
-# CRUD
-
 ⚠ Projeto ainda em desenvolvimento. Algumas partes não funcionam
 
 # Projeto CRUD de Usuários
