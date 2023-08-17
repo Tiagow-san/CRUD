@@ -24,3 +24,5 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) de usuários, 
 - JavaScript
 - HTML
 - CSS
+- Git e Github
+
