@@ -33,24 +33,26 @@ const openModal = () =>
 
 const closeModal = () => {
   document.getElementById("modal").classList.remove("active");
-  clearInputs()}
+  clearInputs();
+};
 
 const clearInputs = () => {
-    const inputs = document.querySelectorAll('.modal-field')
-    inputs.forEach(input => input.value = '')
-}
+  const inputs = document.querySelectorAll(".modal-field");
+  inputs.forEach((input) => (input.value = ""));
+};
 
 const saveClient = () => {
   if (isValidInputs()) {
     const client = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      city: document.getElementById('city').value,
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      city: document.getElementById("city").value,
     };
-    createClient(client)
-    clearInputs()
-    closeModal()
+    createClient(client);
+    clearInputs();
+    closeModal();
+    updateTable();
   }
 };
 
@@ -65,3 +67,32 @@ document.getElementById("registerClient").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 
 document.getElementById("save").addEventListener("click", saveClient);
+
+//Dunno
+
+const createRow = (client) => {
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+  <td>${client.name}</td>
+  <td>${client.email}</td>
+  <td>${client.phone}</td>
+  <td>${client.city}</td>
+  <td>
+      <button type="button" class="button green">editar</button>
+      <button type="button" class="button red">excluir</button>
+  </td>
+`;
+  document.querySelector("#tableRecords>tbody").appendChild(newRow);
+};
+
+const clearTable = () => {
+  const rows = document.querySelectorAll("#tableRecords>tbody tr");
+  rows.forEach((row) => row.parentNode.removeChild(row));
+};
+
+const updateTable = () => {
+  const dbClient = readClient();
+  clearTable();
+  dbClient.forEach(createRow);
+};
+updateTable();
