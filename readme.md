@@ -1,9 +1,8 @@
 ⚠ Projeto ainda em desenvolvimento. Algumas partes não funcionam
 
-⚠ Projeto ainda em desenvolvimento. Algumas partes não funcionam
-
 # Projeto CRUD de Usuários
 
+![preview] (./github/preview.png)
 Este é um projeto simples de CRUD (Create, Read, Update, Delete) de usuários, onde é possível adicionar, visualizar, atualizar e remover informações de usuários, incluindo nome, email, telefone e cidade.
 
 ## Funcionalidades
