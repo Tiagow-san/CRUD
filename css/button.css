@@ -22,7 +22,7 @@ button.red{
 }
 
 .button:hover{
-    box-shadow: inset 200px 0 0 #00000055;
+    box-shadow: inset 200px 0 0 #79797955;
 }
 
 @media(max-width:480px){
