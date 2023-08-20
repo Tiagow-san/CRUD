@@ -1,5 +1,3 @@
-⚠ Projeto ainda em desenvolvimento. Algumas partes não funcionam
-
 # Projeto CRUD de Usuários
 
 ![preview](./.github/preview.png)
@@ -13,11 +11,13 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) de usuários, 
   - Telefone
   - Cidade
 
-- Visualizar a lista de usuários cadastrados.
+- Visualizar a lista de usuários cadastrados;
 
-- Atualizar informações de um usuário existente.
+- Atualizar informações de um usuário existente;
 
-- Remover um usuário da lista.
+- Remover um usuário da lista;
+
+- Responsividade, funcionando tanto no desktop quanto no mobile.
 
 [🔗 Clique aqui para acessar](https://tiagow-san.github.io/CRUD)
 ## 🛠 Tecnologias
