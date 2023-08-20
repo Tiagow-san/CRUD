@@ -49,16 +49,56 @@ const saveClient = () => {
       phone: document.getElementById("phone").value,
       city: document.getElementById("city").value,
     };
+    const index = document.getElementById('name').dataset.index
+    if (index == 'new') {
     createClient(client);
     clearInputs();
     closeModal();
     updateTable();
+  }
+else {
+  updateClient(index,client)
+  updateTable()
+  closeModal()
+}
   }
 };
 
 const isValidInputs = () => {
   return document.getElementById("form").reportValidity();
 };
+
+const fillInputs = (client) => {
+document.getElementById ('name').value = client.name
+document.getElementById ('email').value = client.email
+document.getElementById ('phone').value = client.phone
+document.getElementById ('city').value = client.city
+document.getElementById ('name').dataset.index = client.index
+}
+const editClient = (index) =>{
+  const client = readClient()[index]
+  client.index = index
+  fillInputs(client)
+  openModal()
+}
+const editDelete = (event) => {
+  if (event.target.type == 'button') {
+    const [action,index] = event.target.id.split('-')
+    if (action == 'edit') {
+      editClient(index)
+      updateTable()
+    }
+    else {
+      const client = readClient()[index]
+      const warn = confirm (`Deseja realmente excluir o cliente ${client.name}?`)
+      if (warn) {
+      deleteClient(index)
+      updateTable()
+    }
+    }
+  }
+
+}
 
 //Events
 
@@ -68,9 +108,10 @@ document.getElementById("modalClose").addEventListener("click", closeModal);
 
 document.getElementById("save").addEventListener("click", saveClient);
 
+document.querySelector("#tableRecords>tbody").addEventListener("click",editDelete)
 //Dunno
 
-const createRow = (client) => {
+const createRow = (client,index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
   <td>${client.name}</td>
@@ -78,8 +119,8 @@ const createRow = (client) => {
   <td>${client.phone}</td>
   <td>${client.city}</td>
   <td>
-      <button type="button" class="button green">editar</button>
-      <button type="button" class="button red">excluir</button>
+      <button type="button" class="button green" id ='edit-${index}'>editar</button>
+      <button type="button" class="button red" id ='delete-${index}'>excluir</button>
   </td>
 `;
   document.querySelector("#tableRecords>tbody").appendChild(newRow);
@@ -95,4 +136,4 @@ const updateTable = () => {
   clearTable();
   dbClient.forEach(createRow);
 };
-updateTable();
+updateTable()
